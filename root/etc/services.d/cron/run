@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+
+# run offlineimap synchronization via crontab
+
+echo "${CRON_SCHEDULE} /etc/run-offlineimap.sh 2>&1" > /tmp/crontabs/root
+/usr/sbin/crond -f -S -c /tmp/crontabs

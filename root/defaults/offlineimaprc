@@ -1,0 +1,37 @@
+[general]
+metadata = /config/metadata
+accounts = user@example.org
+maxsyncaccounts = 3
+ui = basic
+socktimeout = 120
+
+[mbnames]
+enabled = yes
+filename = /config/email/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account user@example.org]
+localrepository = user@example.org-local
+remoterepository = user@example.org-remote
+autorefresh = 2
+quick=10
+
+[Repository user@example.org-local]
+type = Maildir
+localfolders = /mail/user@example.org
+
+[Repository user@example.org-remote]
+type = IMAP
+remotehost = mail.example.org
+remoteuser = user@example.org
+remotepassfile = /secrets/user@example.org.pass
+sslcacertfile: %(systemcacertfile)s
+ssl = yes
+readonly = True
+remoteport = 993
+
+[DEFAULT]
+systemcacertfile = /etc/ssl/certs/ca-certificates.crt

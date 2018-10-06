@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p \
+	/tmp/crontabs /config/email /mail /secrets
+
+# copy config
+[[ ! -f /config/offlineimaprc ]] && cp \
+	/defaults/offlineimaprc /config/offlineimaprc
+
+# permissions
+chown abc:abc \
+	/config/offlineimaprc \
+	/config/email \
+	/mail \
+	/secrets
+
+chmod 755 /etc/run-offlineimap.sh

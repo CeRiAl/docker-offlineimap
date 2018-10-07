@@ -14,5 +14,3 @@ chown abc:abc \
 	/config/email \
 	/mail \
 	/secrets
-
-chmod 755 /etc/run-offlineimap.sh

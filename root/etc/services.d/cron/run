@@ -1,6 +1,7 @@
 #!/usr/bin/with-contenv bash
 
-# run offlineimap synchronization via crontab
+# generate fresh crontab
+echo "${CRON_SCHEDULE} exec s6-setuidgid abc /usr/bin/offlineimap -o -c /config/offlineimaprc 2>&1" > /tmp/crontabs/root
 
-echo "${CRON_SCHEDULE} /etc/run-offlineimap.sh 2>&1" > /tmp/crontabs/root
+# run offlineimap synchronization via crontab
 /usr/sbin/crond -f -S -c /tmp/crontabs

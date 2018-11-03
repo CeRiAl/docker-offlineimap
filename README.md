@@ -117,7 +117,8 @@ license on the `LICENSE` file in this repository.
 
 ## Versions
 
-+ **2018-10-07:** Version 0.0.2.
++ **2018-11-03:** Version 0.1.0
++ **2018-10-07:** Version 0.0.2
 + **2018-10-06:** Initial Release.
 
 [hub]: https://hub.docker.com/r/cryptopath/offlineimap/

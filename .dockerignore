@@ -2,7 +2,8 @@
 .gitattributes
 .gitignore
 .idea
-maintainer.sh
+hooks
+build-local.sh
 LICENSE
 README.md
 VERSION

@@ -1,0 +1,26 @@
+#!/bin/bash
+set -e  # Exit on error
+
+# environment variables from Docker Cloud build-server
+DOCKER_REPO="${DOCKER_REPO}"    # e.g. "index.docker.io/cryptopath/offlineimap"
+DOCKER_TAG="${DOCKER_TAG}"      # e.g. "0.1.0" or "master"
+GIT_SHA1="${GIT_SHA1}"          # e.g. "766b3ffe48c139d664aa1d41cc9923fd4ad579c7"
+
+# environment variables used for setting the image-labels
+REVISION="${GIT_SHA1:0:7}"                  # e.g. "766b3ff"
+BUILD_DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)" # e.g. "2018-10-30T20:28:06Z"
+
+# output current build-settings
+echo "============================================================"
+echo "NAME:         $DOCKER_REPO"
+echo "VERSION:      $DOCKER_TAG"
+echo "REVISION:     $REVISION"
+echo "BUILD_DATE:   $BUILD_DATE"
+echo "============================================================"
+
+# build image with build-args and tag it
+docker build \
+  --build-arg VERSION="$DOCKER_TAG" \
+  --build-arg REVISION="$REVISION" \
+  --build-arg BUILD_DATE="$BUILD_DATE" \
+  --tag "${DOCKER_REPO}:${DOCKER_TAG}" .

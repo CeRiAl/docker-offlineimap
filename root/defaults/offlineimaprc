@@ -1,5 +1,5 @@
 [general]
-metadata = /config/metadata
+metadata = /vol/config/metadata
 accounts = user@example.org
 maxsyncaccounts = 3
 ui = basic
@@ -7,7 +7,7 @@ socktimeout = 120
 
 [mbnames]
 enabled = yes
-filename = /config/email/mailboxes
+filename = /vol/config/email/mailboxes
 header = "mailboxes "
 peritem = "+%(accountname)s/%(foldername)s"
 sep = " "
@@ -21,13 +21,13 @@ quick=10
 
 [Repository user@example.org-local]
 type = Maildir
-localfolders = /mail/user@example.org
+localfolders = /vol/mail/user@example.org
 
 [Repository user@example.org-remote]
 type = IMAP
 remotehost = mail.example.org
 remoteuser = user@example.org
-remotepassfile = /secrets/user@example.org.pass
+remotepassfile = /vol/secrets/user@example.org.pass
 sslcacertfile: %(systemcacertfile)s
 ssl = yes
 readonly = True

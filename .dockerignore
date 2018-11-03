@@ -1,5 +1,9 @@
 .git
 .gitattributes
 .gitignore
+.idea
+hooks
+build-local.sh
 LICENSE
 README.md
+VERSION

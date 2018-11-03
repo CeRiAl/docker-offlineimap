@@ -1,5 +1,8 @@
 .git
 .gitattributes
 .gitignore
+.idea
+maintainer.sh
 LICENSE
 README.md
+VERSION

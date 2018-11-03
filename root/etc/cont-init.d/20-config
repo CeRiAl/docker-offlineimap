@@ -1,16 +1,19 @@
 #!/usr/bin/with-contenv bash
 
-# make folders
+# make folders
 mkdir -p \
-	/tmp/crontabs /config/email /mail /secrets
+  /tmp/crontabs \
+  "${CONFIG_PATH}/email" \
+  "${SECRETS_PATH}" \
+  "${MAIL_PATH}"
 
-# copy config
-[[ ! -f /config/offlineimaprc ]] && cp \
-	/defaults/offlineimaprc /config/offlineimaprc
+# copy default config
+[[ ! -f "${CONFIG_PATH}/offlineimaprc" ]] && \
+  cp /defaults/offlineimaprc "${CONFIG_PATH}/offlineimaprc"
 
-# permissions
+# set permissions
 chown abc:abc \
-	/config/offlineimaprc \
-	/config/email \
-	/mail \
-	/secrets
+  "${CONFIG_PATH}" \
+  "${CONFIG_PATH}"/{offlineimaprc,email} \
+  "${SECRETS_PATH}" \
+  "${MAIL_PATH}"

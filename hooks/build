@@ -19,7 +19,7 @@ echo "BUILD_DATE:   $BUILD_DATE"
 echo "============================================================"
 
 # build image with build-args and tag it
-docker build \
+docker build --no-cache \
   --build-arg VERSION="$DOCKER_TAG" \
   --build-arg REVISION="$REVISION" \
   --build-arg BUILD_DATE="$BUILD_DATE" \
